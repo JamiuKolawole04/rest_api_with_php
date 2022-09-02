@@ -62,9 +62,18 @@
 
             break;
 
+          // case "OPTIONS":
+          // header("Access-Control-Allow-Origin: http://localhost:3000");
+          //   $rows = $this->gateway->delete($id);                
+          //   echo json_encode([
+          //     "message" => "Product $id deleted",
+          //     "rows" => $rows,
+          //   ]);
+          //  break; 
+
         case "DELETE":
-            $rows = $this->gateway->delete($id);
-            
+          // header("Access-Control-Allow-Origin: http://localhost:3000");
+            $rows = $this->gateway->delete($id);                
             echo json_encode([
               "message" => "Product $id deleted",
               "rows" => $rows,
@@ -74,7 +83,7 @@
 
         default: 
             http_response_code(405);
-            header('Allow: GET, POST, PATCH, DELETE');
+            header('Allow: GET, POST, PATCH, DELETE, OPTIONS');
             echo json_encode([
             "message" => "not allowed",
             "error" => true,
@@ -124,7 +133,7 @@
 
           default: 
             http_response_code(405);
-            header('Allow: GET, POST, PATCH, DELETE');
+            header('Allow: GET, POST, PATCH, DELETE, OPTIONS');
             echo json_encode([
             "message" => "not allowed",
             "error" => true,

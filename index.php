@@ -3,6 +3,12 @@
 
  header("content-type: application/json; charset: utf-8");
  header("Access-Control-Allow-Origin: http://localhost:3000");
+//  header("Access-Control-Allow-Origin: *");
+ header("Access-Control-Allow-Credentials: true");
+ header("Access-Control-Max-Age: 3600");
+ header("Access-Control-Request-Method: POST, GET, PATCH, DELETE, OPTIONS");
+ header("Access-Contol-Request-Headers: X-Requested-With, Content-Type, Authorization");
+ header("Access-Control-Expose-Headers: X-Pagination-Current-Page");
  
  spl_autoload_register(function ($class) {
     require __DIR__ . "/src/$class.php";
